@@ -1,0 +1,37 @@
+<div
+  style="
+    border-bottom: 1px solid;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+  "
+>
+  <h1>My News Feed</h1>
+  <button style="padding: 5px" class="btn btn-primary" (click)="returnLogin()">
+    <i class="pi pi-sign-out" style="font-size: 2rem"></i>
+  </button>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center">
+  <div
+    class="card"
+    style="width: 18rem; margin: 5px"
+    *ngFor="let item of articles"
+  >
+    <img
+      class="card-img-top"
+      src="{{ item.urlToImage }}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ item.title }}</h5>
+      <p style="font-size: 12px">
+        {{ item.author }}
+        {{ item.publishedAt.replace("T", " ").replace("Z", "") }}
+      </p>
+      <p class="card-text">
+        {{ item.description }}
+      </p>
+      <a href="{{ item.url }}" class="btn btn-primary">mas información</a>
+    </div>
+  </div>
+</div>
